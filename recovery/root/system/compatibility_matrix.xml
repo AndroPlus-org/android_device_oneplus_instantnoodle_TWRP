@@ -1,11 +1,11 @@
 <!--
     Input:
         compatibility_matrix.4.xml
-        matrix.xml
-        matrix.xml
-        matrix.xml
+        matrix_kernel_config_q_4.9.xml
+        matrix_kernel_config_q_4.14.xml
+        matrix_kernel_config_q_4.19.xml
 -->
-<compatibility-matrix version="1.0" type="framework" level="4">
+<compatibility-matrix version="2.0" type="framework" level="4">
     <hal format="hidl" optional="true">
         <name>android.hardware.atrace</name>
         <version>1.0</version>
@@ -188,7 +188,6 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.gnss</name>
-        <version>1.1</version>
         <version>2.0</version>
         <interface>
             <name>IGnss</name>
@@ -425,7 +424,6 @@
     </hal>
     <hal format="hidl" optional="true">
         <name>android.hardware.thermal</name>
-        <version>1.0-1</version>
         <version>2.0</version>
         <interface>
             <name>IThermal</name>
@@ -512,87 +510,69 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
+    <hal format="hidl" optional="true">
+        <name>vendor.display.color</name>
+        <version>1.0-5</version>
+        <interface>
+            <name>IDisplayColor</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="hidl" optional="true">
         <name>vendor.display.config</name>
-        <version>1.15</version>
+        <version>1.0-15</version>
+        <version>2.0</version>
         <interface>
             <name>IDisplayConfig</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.goodix.hardware.biometrics.fingerprint</name>
-        <version>2.1</version>
+    <hal format="hidl" optional="true">
+        <name>vendor.display.postproc</name>
+        <version>1.0</version>
         <interface>
-            <name>IGoodixFingerprintDaemon</name>
+            <name>IDisplayPostproc</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.nxp.nxpnfc</name>
+        <name>vendor.qti.hardware.display.allocator</name>
         <version>1.0</version>
+        <version>3.0</version>
+        <version>4.0</version>
         <interface>
-            <name>INxpNfc</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.faceunlock.hal</name>
-        <version>1.0</version>
-        <interface>
-            <name>IFaceUnlockNativeService</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.fingerprint.extension</name>
-        <version>1.0</version>
-        <interface>
-            <name>IVendorFingerprintExtensions</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.ifaa</name>
-        <version>2.0</version>
-        <interface>
-            <name>IOneplusIfaa</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.rpmb</name>
-        <version>1.0</version>
-        <interface>
-            <name>IOneplusRpmb</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.oneplus.hardware.wifi</name>
-        <version>1.1</version>
-        <interface>
-            <name>IOneplusWifi</name>
+            <name>IQtiAllocator</name>
             <instance>default</instance>
         </interface>
     </hal>
     <hal format="hidl" optional="true">
         <name>vendor.qti.hardware.display.composer</name>
-        <version>2.1</version>
+        <version>2.0-1</version>
+        <version>3.0</version>
         <interface>
             <name>IQtiComposer</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="false">
-        <name>vendor.qti.spu</name>
-        <version>1.0</version>
+    <hal format="hidl" optional="true">
+        <name>vendor.qti.hardware.display.mapper</name>
+        <version>2.0</version>
+        <version>3.0</version>
+        <version>4.0</version>
         <interface>
-            <name>ISPUManager</name>
+            <name>IQtiMapper</name>
             <instance>default</instance>
         </interface>
     </hal>
-    <kernel version="4.9.165">
+    <hal format="hidl" optional="true">
+        <name>vendor.oneplus.hardware.lmvibrator</name>
+        <version>1.0</version>
+        <interface>
+            <name>ILinearMotorVibrator</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <kernel version="4.9.165" level="4">
         <config>
             <key>CONFIG_ADVISE_SYSCALLS</key>
             <value type="tristate">y</value>
@@ -1334,10 +1314,6 @@
             <value type="tristate">y</value>
         </config>
         <config>
-            <key>CONFIG_RT_GROUP_SCHED</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
             <key>CONFIG_SCHED_DEBUG</key>
             <value type="tristate">y</value>
         </config>
@@ -1486,7 +1462,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM</key>
@@ -1506,7 +1482,7 @@
             <value type="tristate">n</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -1538,7 +1514,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_X86</key>
@@ -1554,7 +1530,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ACPI</key>
@@ -1566,7 +1542,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_OF</key>
@@ -1578,7 +1554,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ANDROID_LOW_MEMORY_KILLER</key>
@@ -1594,7 +1570,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_MEMCG</key>
@@ -1606,7 +1582,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_MEMCG_SWAP</key>
@@ -1618,7 +1594,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.9.165">
+    <kernel version="4.9.165" level="4">
         <conditions>
             <config>
                 <key>CONFIG_USB_RTL8152</key>
@@ -1630,7 +1606,7 @@
             <value type="tristate">n</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <config>
             <key>CONFIG_ADVISE_SYSCALLS</key>
             <value type="tristate">y</value>
@@ -1989,14 +1965,6 @@
         </config>
         <config>
             <key>CONFIG_MEMBARRIER</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_MEMCG</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_MEMCG_SWAP</key>
             <value type="tristate">y</value>
         </config>
         <config>
@@ -2380,10 +2348,6 @@
             <value type="tristate">y</value>
         </config>
         <config>
-            <key>CONFIG_RT_GROUP_SCHED</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
             <key>CONFIG_SCHED_DEBUG</key>
             <value type="tristate">y</value>
         </config>
@@ -2540,7 +2504,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM</key>
@@ -2564,7 +2528,7 @@
             <value type="tristate">n</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -2592,7 +2556,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -2608,7 +2572,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -2624,7 +2588,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_X86</key>
@@ -2644,7 +2608,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ACPI</key>
@@ -2656,7 +2620,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_OF</key>
@@ -2668,7 +2632,31 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.14.105">
+    <kernel version="4.14.105" level="4">
+        <conditions>
+            <config>
+                <key>CONFIG_MEMCG</key>
+                <value type="tristate">n</value>
+            </config>
+        </conditions>
+        <config>
+            <key>CONFIG_PSI</key>
+            <value type="tristate">y</value>
+        </config>
+    </kernel>
+    <kernel version="4.14.105" level="4">
+        <conditions>
+            <config>
+                <key>CONFIG_PSI</key>
+                <value type="tristate">n</value>
+            </config>
+        </conditions>
+        <config>
+            <key>CONFIG_MEMCG</key>
+            <value type="tristate">y</value>
+        </config>
+    </kernel>
+    <kernel version="4.14.105" level="4">
         <conditions>
             <config>
                 <key>CONFIG_USB_RTL8152</key>
@@ -2680,7 +2668,7 @@
             <value type="tristate">n</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <config>
             <key>CONFIG_ADVISE_SYSCALLS</key>
             <value type="tristate">y</value>
@@ -3035,14 +3023,6 @@
         </config>
         <config>
             <key>CONFIG_MEMBARRIER</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_MEMCG</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
-            <key>CONFIG_MEMCG_SWAP</key>
             <value type="tristate">y</value>
         </config>
         <config>
@@ -3410,10 +3390,6 @@
             <value type="tristate">y</value>
         </config>
         <config>
-            <key>CONFIG_RT_GROUP_SCHED</key>
-            <value type="tristate">y</value>
-        </config>
-        <config>
             <key>CONFIG_SCHED_DEBUG</key>
             <value type="tristate">y</value>
         </config>
@@ -3578,7 +3554,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM</key>
@@ -3602,7 +3578,7 @@
             <value type="tristate">n</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -3630,7 +3606,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -3646,7 +3622,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ARM64</key>
@@ -3662,7 +3638,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_X86</key>
@@ -3682,7 +3658,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_ACPI</key>
@@ -3694,7 +3670,7 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_OF</key>
@@ -3706,7 +3682,31 @@
             <value type="tristate">y</value>
         </config>
     </kernel>
-    <kernel version="4.19.42">
+    <kernel version="4.19.42" level="4">
+        <conditions>
+            <config>
+                <key>CONFIG_MEMCG</key>
+                <value type="tristate">n</value>
+            </config>
+        </conditions>
+        <config>
+            <key>CONFIG_PSI</key>
+            <value type="tristate">y</value>
+        </config>
+    </kernel>
+    <kernel version="4.19.42" level="4">
+        <conditions>
+            <config>
+                <key>CONFIG_PSI</key>
+                <value type="tristate">n</value>
+            </config>
+        </conditions>
+        <config>
+            <key>CONFIG_MEMCG</key>
+            <value type="tristate">y</value>
+        </config>
+    </kernel>
+    <kernel version="4.19.42" level="4">
         <conditions>
             <config>
                 <key>CONFIG_USB_RTL8152</key>
